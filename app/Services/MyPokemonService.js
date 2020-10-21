@@ -15,7 +15,7 @@ class MyPokemonService {
   }
   async addPokemon() {
     let res = await myPokemonApi.post("", ProxyState.currentPokemon)
-    console.log(res.data.data)
+    // console.log(res.data.data)
     ProxyState.myPokemon = [...ProxyState.myPokemon, new Pokemon(res.data.data)]
   }
 }

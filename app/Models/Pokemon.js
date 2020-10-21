@@ -1,6 +1,6 @@
 export default class Pokemon {
     constructor(data) {
-        this.id = data.id
+        this._id = data.id || data._id
         this.name = data.name
         this.types = data.types[0]
         this.height = data.height
@@ -17,14 +17,23 @@ export default class Pokemon {
         <div class="card">
             <img src="${this.img}" class="card-img-top img-fluid">
             <div class="card-body">
-            <h3 class="card-title"># ${this.id} : ${this.name.toUpperCase()}</h3>
+            <h3 class="card-title"># ${this._id} : ${this.name.toUpperCase()}</h3>
             <p class="card-text">Type: ${this.types.toUpperCase()}</p>
             <p class="card-text">Weight: ${this.weight}</p>
             <p class="card-text">Height: ${this.height}</p>
-            <button class="btn btn-success" onclick="app.myPokemonController.addPokemon()">Log Pokemon?</button>
+            ${this.Button}
             </div>
         </div>
 `}
 
+    get Button() {
+        if (this._id) {
+            return /*html*/`
+            <button class="btn btn-danger" onclick="app.myPokemonController.deletePokemon()">Delete Pokemon?</button>
+        `} else {
+            return /*html*/`
+            <button class="btn btn-success" onclick="app.myPokemonController.addPokemon()">Log Pokemon?</button>
+            `}
+    }
 
 }
