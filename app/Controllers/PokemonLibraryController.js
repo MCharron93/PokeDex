@@ -11,11 +11,16 @@ function _draw() {
   document.getElementById("pokemon-library").innerHTML = template
 }
 
+function _drawCurrentPokemon() {
+  document.getElementById("pokemon-current").innerHTML = ProxyState.currentPokemon.Template
+}
+
 //Public
 export default class PokemonLibraryController {
   constructor() {
     // console.log("Pokemon Library Controller connected");
     ProxyState.on("pokemonLibrary", _draw);
+    ProxyState.on("currentPokemon", _drawCurrentPokemon)
     _draw()
   }
 
