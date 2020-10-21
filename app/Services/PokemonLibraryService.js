@@ -9,14 +9,14 @@ class PokemonLibraryService {
   }
 
   async getPokemonLibrary() {
-    let res = await pokedexApi.get("")
+    let res = await pokedexApi.get("?limit=151")
     // console.log(res.data);
     ProxyState.pokemonLibrary = res.data.results
     console.log(ProxyState.pokemonLibrary);
   }
-  async inspectPokemon(index) {
-    let res = await pokedexApi.get(index)
-    console.log(res.data.results)
+  async inspectPokemon(name) {
+    let res = await pokedexApi.get(name)
+    console.log(res.data)
   }
 
 }

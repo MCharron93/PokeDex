@@ -27,9 +27,9 @@ export default class PokemonLibraryController {
     }
   }
 
-  inspectPokemon(index) {
+  inspectPokemon(name) {
     try {
-      pokemonLibrary.inspectPokemon(index)
+      pokemonLibrary.inspectPokemon(name)
     } catch (error) {
       console.error(error)
     }
