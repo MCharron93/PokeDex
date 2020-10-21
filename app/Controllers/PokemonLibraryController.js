@@ -4,8 +4,11 @@ import { pokemonLibrary } from "../Services/PokemonLibraryService.js";
 
 // Private
 function _draw() {
-  console.log("test");
-
+  // console.log("test");
+  let template = ""
+  let pokemonLibrary = ProxyState.pokemonLibrary
+  pokemonLibrary.forEach(p => template += /*html*/ `<li onclick="app.pokemonLibraryController.inspectPokemon('${p.name}')">${p.name}</li>`)
+  document.getElementById("pokemon-library").innerHTML = template
 }
 
 //Public
@@ -16,5 +19,19 @@ export default class PokemonLibraryController {
     _draw()
   }
 
+  getPokemonLibrary() {
+    try {
+      pokemonLibrary.getPokemonLibrary()
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
+  inspectPokemon(index) {
+    try {
+      pokemonLibrary.inspectPokemon(index)
+    } catch (error) {
+      console.error(error)
+    }
+  }
 }
