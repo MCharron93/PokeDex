@@ -18,7 +18,7 @@ class PokemonLibraryService {
     let res = await pokedexApi.get(name)
     // console.log(res.data)
     ProxyState.currentPokemon = new Pokemon(res.data)
-    console.log(ProxyState.currentPokemon)
+    // console.log(ProxyState.currentPokemon)
   }
 
 }
