@@ -10,7 +10,7 @@ class MyPokemonService {
   }
   async getMyPokemon() {
     let res = await myPokemonApi.get("")
-    // console.log(res.data);
+    // console.log(res.data)
     ProxyState.myPokemon = res.data.data
   }
   async addPokemon() {
